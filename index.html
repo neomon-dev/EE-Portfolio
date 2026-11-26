@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md Mohid Hossain | Engineering Exploration Portfolio</title>
+  <style>
+    :root {
+      --teal: #1d6487;
+      --teal-dark: #154c68;
+      --teal-soft: #eef6fa;
+      --bg: #ffffff;
+      --bg-alt: #f4f7f9;
+      --text: #1c242b;
+      --muted: #52606d;
+      --border: #dce4ea;
+      --shadow: 0 10px 28px rgba(15, 35, 52, 0.08);
+      --radius: 12px;
+      --max-w: 1100px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    /* Sticky Top Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0.95rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .site-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    /* Container Utility */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 3.25rem 0 2.75rem;
+      background: var(--bg);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 2.75rem;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 3.8vw, 2.85rem);
+      font-weight: 800;
+      line-height: 1.18;
+      color: #111827;
+      margin-bottom: 0.9rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-sub {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-welcome {
+      color: var(--teal);
+      font-size: 0.96rem;
+      line-height: 1.7;
+      max-width: 48ch;
+    }
+
+    .hero-visual {
+      background: linear-gradient(135deg, #e6f2f8 0%, #f5f9fc 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .id-card {
+      background: #ffffff;
+      border-left: 5px solid var(--teal);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .id-card .label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .id-card .val {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 0.15rem;
+    }
+
+    .id-meta-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+    }
+
+    /* About Paragraph */
+    .about-box {
+      margin-top: 2.25rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.98rem;
+      line-height: 1.75;
+    }
+
+    /* Full-Width Teal Section & Project Bars */
+    .band-header {
+      background: var(--teal);
+      color: #ffffff;
+      padding: 1.25rem 0;
+    }
+
+    .band-header.main-projects {
+      padding: 1.5rem 0;
+    }
+
+    .band-header h2 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .band-header h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .projects-intro {
+      padding: 2rem 0;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    /* Individual Project Content Row */
+    .project-body {
+      padding: 2.75rem 0;
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-body.alt {
+      background: var(--bg);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    /* Video / Media Frame */
+    .media-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #101820;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #cbd5e1;
+      padding: 1.25rem;
+      position: relative;
+    }
+
+    .media-frame iframe,
+    .media-frame video,
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 0;
+      display: block;
+    }
+
+    .play-badge {
+      width: 52px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 0.65rem;
+    }
+
+    .media-caption {
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    /* Right-Hand Details Column */
+    .project-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.95rem;
+      font-size: 0.97rem;
+      color: var(--text);
+    }
+
+    .project-details p strong {
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.25rem;
+    }
+
+    .tech-pill {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: var(--teal-soft);
+      color: var(--teal-dark);
+      border: 1px solid #c5dfec;
+    }
+
+    /* Featured Project 6 Extra Report Specs */
+    .report-box {
+      margin-top: 1.75rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 4px 16px rgba(15, 35, 52, 0.04);
+    }
+
+    .report-box h4 {
+      color: var(--teal);
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      font-size: 0.88rem;
+    }
+
+    .spec-item {
+      background: var(--bg-alt);
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .spec-item strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .spec-item span {
+      color: var(--muted);
+    }
+
+    /* Bottom Summary Sections: What I Learned & Reflection */
+    .summary-section {
+      padding: 3.25rem 0;
+      background: #e9eef2;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .reflection-section {
+      padding: 3.25rem 0;
+      background: #463c35;
+      color: #f8fafc;
+    }
+
+    .centered-block {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .centered-block h2 {
+      text-align: center;
+      font-size: 1.65rem;
+      font-weight: 700;
+      margin-bottom: 1.4rem;
+    }
+
+    .centered-block p {
+      font-size: 0.98rem;
+      line-height: 1.8;
+      margin-bottom: 1.1rem;
+    }
+
+    .centered-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      padding: 1.4rem 0;
+      font-size: 0.86rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    /* Responsive Alignment */
+    @media (max-width: 820px) {
+      .hero-grid,
+      .project-grid,
+      .specs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { padding: 2.25rem 0; }
+      .project-body { padding: 2rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="site-title">Md Mohid Hossain</a>
+      <nav class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#reflection">Reflection</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero & About -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Md Mohid Hossain | Engineering Exploration Portfolio</h1>
+          <div class="hero-sub">1st Semester | Engineering Exploration (4.5EC070105)</div>
+          <p class="hero-welcome">
+            Welcome to my portfolio. This site showcases what I built and learned in my Engineering Exploration class—from
+            lighting my first LED with an Arduino and building a mobile calculator app in MIT App Inventor, to creating a
+            dual-display real-time audio spectrum visualizer. Scroll down to explore my six projects.
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="id-card">
+            <div class="label">Student Name &amp; Roll Number</div>
+            <div class="val">Md Mohid Hossain — 2K26CSU01AN017</div>
+          </div>
+          <div class="id-meta-row">
+            <div class="id-card">
+              <div class="label">Class / Section</div>
+              <div class="val">ALML 1A</div>
+            </div>
+            <div class="id-card">
+              <div class="label">Department</div>
+              <div class="val">Computer Science &amp; Tech</div>
+            </div>
+          </div>
+          <div class="id-card">
+            <div class="label">University</div>
+            <div class="val">School of Engineering, Manav Rachna University</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="about" class="about-box">
+        <p>
+          Hi, I'm <strong>Md Mohid Hossain</strong> (Roll No: <strong>2K26CSU01AN017</strong>, Class <strong>ALML 1A</strong>),
+          a first-semester engineering student in the Department of Computer Science and Technology at Manav Rachna University.
+          I've always been curious about how everyday electronic devices and mobile apps work under the hood. In my Engineering
+          Exploration class, I gained hands-on experience building real circuits with Arduino, developing block-based mobile
+          applications with MIT App Inventor, and implementing real-time digital signal processing. This portfolio documents the
+          six projects I built, what I learned, and how my engineering skills grew over the semester.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS BANNER -->
+  <div id="projects" class="band-header main-projects">
+    <div class="container">
+      <h2>PROJECTS</h2>
+    </div>
+  </div>
+
+  <div class="projects-intro">
+    <div class="container">
+      <p>
+        This semester I built six projects, each one more advanced than the last: LED control, a potentiometer, a distance sensor,
+        a Bluetooth-controlled LED, a calculator app using MIT App Inventor, and a dual-display audio-reactive beat visualizer.
+        Explore each project below to see demo videos, circuit setups, and what I learned.
+      </p>
+    </div>
+  </div>
+
+  <!-- PROJECT 1 -->
+  <section id="project-1">
+    <div class="band-header">
+      <div class="container"><h3>Project 1: LED with Arduino</h3></div>
+    </div>
+    <div class="project-body">
+      <div class="container">
+        <div class="project-grid">
+          <div class="media-frame">
+            <video src="project1.mp4" controls style="width: 100%; height: 100%; border-radius: inherit; object-fit: cover;">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="project-details">
+            <p><strong>Goal:</strong> Control an LED using an Arduino Uno board.</p>
+            <p><strong>What I did:</strong> Connected an LED and a current-limiting resistor to a digital output pin on the Arduino breadboard and wrote code to switch it on and off at timed intervals.</p>
+            <p><strong>What I learned:</strong> Why an LED requires a resistor to limit current safely, and how digital output pins translate code instructions into physical hardware behavior.</p>
+            <div class="tech-pills">
+              <span class="tech-pill">Arduino Uno</span>
+              <span class="tech-pill">Digital I/O</span>
+              <span class="tech-pill">Breadboard</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 2 -->
+  <section id="project-2">
+    <div class="band-header">
+      <div class="container"><h3>Project 2: Potentiometer</h3></div>
+    </div>
+    <div class="project-body alt">
+      <div class="container">
+        <div class="project-grid">
+          <div class="media-frame">
+            <video src="project2.mp4" controls style="width: 100%; height: 100%; border-radius: inherit; object-fit: cover;">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="project-details">
+            <p><strong>Goal:</strong> Read a variable analog input and use it to dynamically change an output.</p>
+            <p><strong>What I did:</strong> Connected a potentiometer to an analog input pin (A0) and mapped its 10-bit ADC readings (0–1023) to control LED brightness and blink rate.</p>
+            <p><strong>What I learned:</strong> The difference between analog and digital signals, and how rotating a physical knob converts voltage changes into numbers the microcontroller can process.</p>
+            <div class="tech-pills">
+              <span class="tech-pill">Analog Input (ADC)</span>
+              <span class="tech-pill">PWM Output</span>
+              <span class="tech-pill">Potentiometer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 3 -->
+  <section id="project-3">
+    <div class="band-header">
+      <div class="container"><h3>Project 3: Distance Sensor</h3></div>
+    </div>
+    <div class="project-body">
+      <div class="container">
+        <div class="project-grid">
+          <div class="media-frame">
+            <video src="project3.mp4" controls style="width: 100%; height: 100%; border-radius: inherit; object-fit: cover;">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="project-details">
+            <p><strong>Goal:</strong> Measure how far away an object is in real time.</p>
+            <p><strong>What I did:</strong> Interfaced an ultrasonic distance sensor (HC-SR04) with the Arduino, calculated object distance from echo pulse duration, and displayed live readings on the Serial Monitor.</p>
+            <p><strong>What I learned:</strong> How ultrasonic sensors transmit and receive sound pulses, and how microcontrollers convert microsecond timing into accurate distance measurements.</p>
+            <div class="tech-pills">
+              <span class="tech-pill">HC-SR04 Sensor</span>
+              <span class="tech-pill">Serial Monitor</span>
+              <span class="tech-pill">Pulse Timing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 4 -->
+  <section id="project-4">
+    <div class="band-header">
+      <div class="container"><h3>Project 4: Bluetooth-Controlled LED</h3></div>
+    </div>
+    <div class="project-body alt">
+      <div class="container">
+        <div class="project-grid">
+          <div class="media-frame">
+            <video src="project4.mp4" controls style="width: 100%; height: 100%; border-radius: inherit; object-fit: cover;">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="project-details">
+            <p><strong>Goal:</strong> Control an LED wirelessly from a smartphone.</p>
+            <p><strong>What I did:</strong> Connected a Bluetooth module (HC-05) to the Arduino's UART serial pins and paired it with a mobile controller app to send wireless commands that toggle the LED on and off.</p>
+            <p><strong>What I learned:</strong> How serial communication (TX/RX) works between two devices, and how wireless control builds directly on the digital output logic from Project 1.</p>
+            <div class="tech-pills">
+              <span class="tech-pill">Bluetooth HC-05</span>
+              <span class="tech-pill">UART Serial</span>
+              <span class="tech-pill">Wireless Control</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 5 (UPDATED: CALCULATOR APP USING MIT APP INVENTOR) -->
+  <section id="project-5">
+    <div class="band-header">
+      <div class="container"><h3>Project 5: Calculator App Using MIT App Inventor</h3></div>
+    </div>
+    <div class="project-body">
+      <div class="container">
+        <div class="project-grid">
+          <div class="media-frame">
+            <div class="play-badge">&#9654;</div>
+            <div><strong>Project 5 Demo Video</strong></div>
+            <div class="media-caption">Upload/embed your MIT App Inventor Calculator video here</div>
+          </div>
+          <div class="project-details">
+            <p><strong>Goal:</strong> Design and build a working mobile calculator application using MIT App Inventor.</p>
+            <p><strong>What I did:</strong> Created an interactive user interface in MIT App Inventor Designer with number inputs, operator buttons (+, −, ×, ÷), and a clear/reset control, then programmed the arithmetic logic and input validation using visual event blocks.</p>
+            <p><strong>What I learned:</strong> How event-driven mobile app programming works, how to structure conditional logic for arithmetic operations, and how to handle edge cases like empty inputs or division by zero.</p>
+            <div class="tech-pills">
+              <span class="tech-pill">MIT App Inventor</span>
+              <span class="tech-pill">Block Programming</span>
+              <span class="tech-pill">UI Design &amp; Event Logic</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT 6 (FROM PDF REPORT) -->
+  <section id="project-6">
+    <div class="band-header">
+      <div class="container"><h3>Project 6: Dual-Display Audio-Reactive Beat Visualizer &amp; Spectrum Equalizer</h3></div>
+    </div>
+    <div class="project-body alt">
+      <div class="container">
+        <div class="project-grid">
+          <div class="media-frame" style="padding: 10px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; align-items: stretch;">
+            <img src="project6-1.jpg" alt="Project 6 skull reveal on LED matrix and OLED" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" />
+            <img src="project6-2.jpg" alt="Project 6 crewmate animation on LED matrix and OLED" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" />
+            <img src="project6-3.jpg" alt="Project 6 hardware wiring with Arduino Uno, breadboard, OLED, mic, and LED matrix" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" />
+          </div>
+          <div class="project-details">
+            <p><strong>Goal:</strong> Build a real-time dual-display audio-reactive beat visualizer and 8-band frequency spectrum equalizer on an Arduino Uno within 2 KB SRAM.</p>
+            <p><strong>What I did:</strong> Sampled acoustic audio from a MAX9814 microphone at ~32 kHz (ADC prescaler 32) with DC-offset removal and applied the <strong>Goertzel DSP algorithm</strong> across 8 bands (1 kHz–8 kHz). Synchronized two displays: an <strong>8×8 WS2812B RGB matrix</strong> (walking crewmate → 500 ms bass-drop explosion with 14 sparks → pulsing-eye skull reveal) and a <strong>0.96" SSD1306 I2C OLED</strong> (grooving character + 16-bar peak-hold equalizer). Built with teammates Zaid Alvi &amp; Yashasvi Kumar.</p>
+            <p><strong>What I learned:</strong> How to implement efficient frequency-domain DSP (Goertzel filters) on an 8-bit ATmega328P microcontroller, manage SRAM using U8g2 1-page buffering, and run 400 kHz Fast I2C alongside NeoPixels without audio lag.</p>
+            <div class="tech-pills">
+              <span class="tech-pill">Arduino Uno</span>
+              <span class="tech-pill">Goertzel DSP (1–8 kHz)</span>
+              <span class="tech-pill">8×8 WS2812B Matrix</span>
+              <span class="tech-pill">0.96" SSD1306 OLED</span>
+              <span class="tech-pill">MAX9814 Mic</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="report-box">
+          <h4>Project 6 Hardware &amp; Technical Specifications (From Report)</h4>
+          <div class="specs-grid">
+            <div class="spec-item">
+              <strong>Audio &amp; DSP Engine</strong>
+              <span>MAX9814 on Pin A0, 31 µs sampling (~32 kHz), 64-sample frames, noise gate = 190, progressive treble boost.</span>
+            </div>
+            <div class="spec-item">
+              <strong>LED Matrix &amp; OLED Pins</strong>
+              <span>WS2812B DIN on D6 (330 Ω resistor, brightness capped at 50/255); SSD1306 OLED on A4 (SDA) &amp; A5 (SCL) at 400 kHz.</span>
+            </div>
+            <div class="spec-item">
+              <strong>Bass-Drop State Machine</strong>
+              <span>Triggers explosion when low-band punch (1+2 kHz) &gt; 9.5 &amp; spike &gt; 3.8, transitioning to a 1,800 ms skull reveal.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I LEARNED -->
+  <section id="learned" class="summary-section">
+    <div class="container">
+      <div class="centered-block">
+        <h2>What I Learned</h2>
+        <p>
+          Over the semester I progressed from basic digital outputs to complete embedded and software systems. I started
+          with a simple LED circuit and learned the fundamentals of breadboard wiring and Arduino code. Next, I worked with
+          analog and sensor inputs like a potentiometer and an ultrasonic distance sensor, added wireless communication with
+          Bluetooth, built an interactive mobile calculator app in MIT App Inventor, and finally combined real-time Goertzel
+          signal processing with dual visual displays in my final project. Along the way, I learned to debug systematically—checking
+          hardware connections, voltage rails, and memory limits first—and saw how a single loose wire or timing bottleneck
+          can affect an entire system.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFLECTION -->
+  <section id="reflection" class="reflection-section">
+    <div class="container">
+      <div class="centered-block">
+        <h2>Reflection</h2>
+        <p>
+          The most eye-opening part of this course was seeing how small hardware or code decisions directly impact real-world
+          performance. Whether it was preventing division-by-zero errors in my MIT App Inventor calculator or keeping SRAM and
+          USB current safe while driving both an OLED display and 64 RGB LEDs at 32 kHz audio sampling, patience and step-by-step
+          testing were essential.
+        </p>
+        <p>
+          Project 6—the Dual-Display Audio-Reactive Beat Visualizer—was both the most challenging and most rewarding build,
+          because high-speed audio sampling, frequency filtering, and dual-screen animations all had to run smoothly together
+          without lag. Seeing the LED character react to live music beats made all the debugging worthwhile.
+        </p>
+        <p>
+          This course strengthened my interest in computer science, embedded systems, and interactive applications. In upcoming
+          semesters, I look forward to building larger projects that combine mobile interfaces, wireless communication, and
+          real-time signal processing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span>Md Mohid Hossain • Roll No: 2K26CSU01AN017 • Class ALML 1A</span>
+      <span>Department of Computer Science &amp; Technology • Manav Rachna University</span>
+    </div>
+  </footer>
+
+</body>
+</html>
