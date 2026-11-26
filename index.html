@@ -25,7 +25,9 @@
     body {
       font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
       color: var(--text);
-      background: var(--bg);
+      background-color: #f8fbfd;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%231d6487' stroke-opacity='0.075' stroke-width='1.5'%3E%3Cpath d='M0 40h45l15 15h35M140 0v35l-15 15v40M220 110h-45l-15-15h-30M40 220v-45l15-15h45M110 140v45l20 20h40'/%3E%3Ccircle cx='45' cy='40' r='3' fill='%231d6487' fill-opacity='0.08'/%3E%3Ccircle cx='95' cy='55' r='3.5'/%3E%3Ccircle cx='125' cy='90' r='3' fill='%231d6487' fill-opacity='0.08'/%3E%3Ccircle cx='175' cy='110' r='3.5'/%3E%3Ccircle cx='100' cy='160' r='3'/%3E%3Crect x='150' y='25' width='34' height='24' rx='3'/%3E%3Cpath d='M156 25v-6M164 25v-6M172 25v-6M178 25v-6M156 49v6M164 49v6M172 49v6M178 49v6'/%3E%3Cpath d='M28 115a14 14 0 0 1 0 20M35 110a21 21 0 0 1 0 30M42 105a28 28 0 0 1 0 40' stroke-linecap='round'/%3E%3Crect x='155' y='155' width='26' height='26' rx='4'/%3E%3Ccircle cx='168' cy='168' r='5'/%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed;
       line-height: 1.65;
     }
 
@@ -86,8 +88,9 @@
 
     /* Hero Section */
     .hero {
-      padding: 3.25rem 0 2.75rem;
-      background: var(--bg);
+      padding: 3.5rem 0 3rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(238, 246, 250, 0.72) 100%);
+      border-bottom: 1px solid var(--border);
     }
 
     .hero-grid {
